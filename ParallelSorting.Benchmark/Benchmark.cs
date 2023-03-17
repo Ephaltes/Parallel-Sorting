@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using BenchmarkDotNet.Attributes;
 
@@ -15,11 +15,11 @@ namespace ParallelSorting.Benchmark;
 public class Benchmark
 {
     private const int ArraySize = 10_000_000;
-    private IReadOnlyCollection<int> _arrayToSort;
-    private MergeSort _mergeSort;
-    private QuickSort _quickSort;
+    private IReadOnlyCollection<int> _arrayToSort = null!;
+    private MergeSort _mergeSort = null!;
+    private QuickSort _quickSort = null!;
 
-    [Params(5_000_000, 2_500_000, 1_250_000, 100_000, Int32.MinValue)]
+    [Params(2_500_000, 1_250_000, 100_000, 10_000, 1000)]
     public int Threshold;
 
     [GlobalSetup]
@@ -42,23 +42,23 @@ public class Benchmark
     }
 
     [Benchmark]
-    public void QuickSortParallelNaive()
+    public async Task QuickSortParallelNaive()
     {
         int[] array = _arrayToSort.ToArray();
-        _quickSort.SortParallelNaive(array, 0, array.Length - 1);
+        await _quickSort.SortParallelNaiveAsync(array, 0, array.Length - 1);
         //Console.WriteLine(string.Join(' ',array.Select(number => number)));
         //Console.WriteLine(string.Join(' ',_arrayToSort.Select(number => number)));
     }
-    
+
     [Benchmark]
-    public void QuickSortParallelThreshold()
+    public async Task QuickSortParallelThreshold()
     {
         int[] array = _arrayToSort.ToArray();
-        _quickSort.SortParallelThreshold(array, 0, array.Length - 1, Threshold);
+        await _quickSort.SortParallelThresholdAsync(array, 0, array.Length - 1, Threshold);
         //Console.WriteLine(string.Join(' ',array.Select(number => number)));
         //Console.WriteLine(string.Join(' ',_arrayToSort.Select(number => number)));
     }
-    
+
     [Benchmark]
     public void MergeSortSequentially()
     {
@@ -67,21 +67,21 @@ public class Benchmark
         //Console.WriteLine(string.Join(' ',array.Select(number => number)));
         //Console.WriteLine(string.Join(' ',_arrayToSort.Select(number => number)));
     }
-    
+
     [Benchmark]
-    public void MergeSortParallelNaive()
+    public async Task MergeSortParallelNaive()
     {
         int[] array = _arrayToSort.ToArray();
-        _mergeSort.SortParallelNaive(array, 0, array.Length - 1);
+        await _mergeSort.SortParallelNaiveAsync(array, 0, array.Length - 1);
         //Console.WriteLine(string.Join(' ',array.Select(number => number)));
         //Console.WriteLine(string.Join(' ',_arrayToSort.Select(number => number)));
     }
-    
+
     [Benchmark]
-    public void MergeSortParallelThreshold()
+    public async Task MergeSortParallelThreshold()
     {
         int[] array = _arrayToSort.ToArray();
-        _mergeSort.SortParallelThreshold(array, 0, array.Length - 1, Threshold);
+        await _mergeSort.SortParallelThresholdAsync(array, 0, array.Length - 1, Threshold);
         //Console.WriteLine(string.Join(' ',array.Select(number => number)));
         //Console.WriteLine(string.Join(' ',_arrayToSort.Select(number => number)));
     }

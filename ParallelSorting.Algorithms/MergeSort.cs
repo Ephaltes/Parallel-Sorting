@@ -18,21 +18,21 @@ public class MergeSort
         Merge(array, leftIndex, middleIndex, rightIndex);
     }
 
-    public void SortParallelNaive(int[] array, int leftIndex, int rightIndex)
+    public async Task SortParallelNaiveAsync(int[] array, int leftIndex, int rightIndex)
     {
         if (leftIndex >= rightIndex)
             return;
 
         int middleIndex = (leftIndex + rightIndex) / 2;
 
-        Task lowerSort = Task.Factory.StartNew(() => SortParallelNaive(array, leftIndex, middleIndex));
-        Task higherSort = Task.Factory.StartNew(() => SortParallelNaive(array, middleIndex + 1, rightIndex));
+        Task lowerSort = Task.Factory.StartNew(() => SortParallelNaiveAsync(array, leftIndex, middleIndex));
+        Task higherSort = Task.Factory.StartNew(() => SortParallelNaiveAsync(array, middleIndex + 1, rightIndex));
 
-        Task.WaitAll(lowerSort, higherSort);
+        await Task.WhenAll(lowerSort, higherSort);
         Merge(array, leftIndex, middleIndex, rightIndex);
     }
 
-    public void SortParallelThreshold(int[] array, int leftIndex, int rightIndex, int threshold)
+    public async Task SortParallelThresholdAsync(int[] array, int leftIndex, int rightIndex, int threshold)
     {
         if (leftIndex >= rightIndex)
             return;
@@ -43,16 +43,16 @@ public class MergeSort
         Task higherSort = Task.CompletedTask;
         
         if(middleIndex-leftIndex > threshold)
-            lowerSort = Task.Factory.StartNew(() => SortParallelThreshold(array, leftIndex, middleIndex, threshold));
+            lowerSort = Task.Factory.StartNew(() => SortParallelThresholdAsync(array, leftIndex, middleIndex, threshold));
         else
             SortSequentially(array, leftIndex, middleIndex);
 
         if(rightIndex-middleIndex > threshold)
-            higherSort = Task.Factory.StartNew(() => SortParallelThreshold(array, middleIndex + 1, rightIndex, threshold));
+            higherSort = Task.Factory.StartNew(() => SortParallelThresholdAsync(array, middleIndex + 1, rightIndex, threshold));
         else
             SortSequentially(array, middleIndex + 1, rightIndex);
 
-        Task.WaitAll(lowerSort, higherSort);
+        await Task.WhenAll(lowerSort, higherSort);
         Merge(array, leftIndex, middleIndex, rightIndex);
     }
 

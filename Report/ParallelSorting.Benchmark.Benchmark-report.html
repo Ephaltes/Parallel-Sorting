@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>ParallelSorting.Benchmark.Benchmark-20230312-160433</title>
+<title>ParallelSorting.Benchmark.Benchmark-20230317-193536</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,47 +13,47 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.13.5, OS=Windows 11 (10.0.22000.1574/21H2/SunValley)
+BenchmarkDotNet=v0.13.5, OS=Windows 11 (10.0.22000.1696/21H2/SunValley)
 Intel Core i7-3770K CPU 3.50GHz (Ivy Bridge), 1 CPU, 8 logical and 4 physical cores
-.NET SDK=7.0.201
-  [Host]     : .NET 7.0.3 (7.0.323.6910), X64 RyuJIT AVX
-  DefaultJob : .NET 7.0.3 (7.0.323.6910), X64 RyuJIT AVX
+.NET SDK=7.0.202
+  [Host]     : .NET 7.0.4 (7.0.423.11508), X64 RyuJIT AVX
+  DefaultJob : .NET 7.0.4 (7.0.423.11508), X64 RyuJIT AVX
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>              Method</th><th>Threshold</th><th>Mean</th><th>Error</th><th>StdDev</th><th>  Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+<thead><tr><th>              Method</th><th>Threshold</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>  Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>QuickSortSequentially</td><td>-2147483648</td><td>780.7 ms</td><td>6.16 ms</td><td>5.46 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>QuickSortParallelNaive</td><td>-2147483648</td><td>1,799.5 ms</td><td>29.83 ms</td><td>27.90 ms</td><td>627000.0000</td><td>1000.0000</td><td>-</td><td>2530.43 MB</td>
-</tr><tr><td>QuickSortParallelThreshold</td><td>-2147483648</td><td>1,988.4 ms</td><td>37.87 ms</td><td>37.19 ms</td><td>627000.0000</td><td>1000.0000</td><td>-</td><td>2530.33 MB</td>
-</tr><tr><td>MergeSortSequentially</td><td>-2147483648</td><td>1,440.3 ms</td><td>24.99 ms</td><td>23.38 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>MergeSortParallelNaive</td><td>-2147483648</td><td>3,105.6 ms</td><td>62.10 ms</td><td>48.48 ms</td><td>1223000.0000</td><td>9000.0000</td><td>3000.0000</td><td>5178.75 MB</td>
-</tr><tr><td>MergeSortParallelThreshold</td><td>-2147483648</td><td>3,286.7 ms</td><td>63.24 ms</td><td>56.06 ms</td><td>1224000.0000</td><td>7000.0000</td><td>3000.0000</td><td>5178.75 MB</td>
-</tr><tr><td>QuickSortSequentially</td><td>100000</td><td>780.7 ms</td><td>5.04 ms</td><td>4.21 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>QuickSortParallelNaive</td><td>100000</td><td>1,810.9 ms</td><td>35.30 ms</td><td>37.77 ms</td><td>627000.0000</td><td>-</td><td>-</td><td>2530.39 MB</td>
-</tr><tr><td>QuickSortParallelThreshold</td><td>100000</td><td>195.9 ms</td><td>3.53 ms</td><td>6.19 ms</td><td>-</td><td>-</td><td>-</td><td>38.19 MB</td>
-</tr><tr><td>MergeSortSequentially</td><td>100000</td><td>1,417.9 ms</td><td>22.21 ms</td><td>20.78 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>MergeSortParallelNaive</td><td>100000</td><td>3,163.1 ms</td><td>63.00 ms</td><td>110.35 ms</td><td>1224000.0000</td><td>7000.0000</td><td>3000.0000</td><td>5178.75 MB</td>
-</tr><tr><td>MergeSortParallelThreshold</td><td>100000</td><td>606.1 ms</td><td>11.99 ms</td><td>18.67 ms</td><td>283000.0000</td><td>13000.0000</td><td>3000.0000</td><td>1440.38 MB</td>
-</tr><tr><td>QuickSortSequentially</td><td>1250000</td><td>775.9 ms</td><td>6.26 ms</td><td>5.22 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>QuickSortParallelNaive</td><td>1250000</td><td>1,888.8 ms</td><td>36.87 ms</td><td>36.21 ms</td><td>627000.0000</td><td>-</td><td>-</td><td>2530.37 MB</td>
-</tr><tr><td>QuickSortParallelThreshold</td><td>1250000</td><td>316.2 ms</td><td>4.00 ms</td><td>3.74 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>MergeSortSequentially</td><td>1250000</td><td>1,414.5 ms</td><td>16.58 ms</td><td>14.70 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>MergeSortParallelNaive</td><td>1250000</td><td>3,166.8 ms</td><td>62.82 ms</td><td>101.44 ms</td><td>1224000.0000</td><td>9000.0000</td><td>3000.0000</td><td>5178.75 MB</td>
-</tr><tr><td>MergeSortParallelThreshold</td><td>1250000</td><td>576.6 ms</td><td>11.11 ms</td><td>11.89 ms</td><td>283000.0000</td><td>16000.0000</td><td>3000.0000</td><td>1440.35 MB</td>
-</tr><tr><td>QuickSortSequentially</td><td>2500000</td><td>769.4 ms</td><td>5.45 ms</td><td>5.10 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>QuickSortParallelNaive</td><td>2500000</td><td>1,795.9 ms</td><td>35.39 ms</td><td>43.46 ms</td><td>627000.0000</td><td>-</td><td>-</td><td>2530.79 MB</td>
-</tr><tr><td>QuickSortParallelThreshold</td><td>2500000</td><td>327.8 ms</td><td>3.74 ms</td><td>3.50 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>MergeSortSequentially</td><td>2500000</td><td>1,392.5 ms</td><td>13.31 ms</td><td>11.80 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>MergeSortParallelNaive</td><td>2500000</td><td>3,091.0 ms</td><td>61.38 ms</td><td>107.51 ms</td><td>1224000.0000</td><td>7000.0000</td><td>3000.0000</td><td>5178.76 MB</td>
-</tr><tr><td>MergeSortParallelThreshold</td><td>2500000</td><td>818.4 ms</td><td>15.48 ms</td><td>14.48 ms</td><td>283000.0000</td><td>14000.0000</td><td>3000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>QuickSortSequentially</td><td>5000000</td><td>768.7 ms</td><td>4.72 ms</td><td>4.18 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>QuickSortParallelNaive</td><td>5000000</td><td>1,840.9 ms</td><td>33.56 ms</td><td>31.39 ms</td><td>627000.0000</td><td>2000.0000</td><td>-</td><td>2530.64 MB</td>
-</tr><tr><td>QuickSortParallelThreshold</td><td>5000000</td><td>663.6 ms</td><td>7.62 ms</td><td>7.12 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
-</tr><tr><td>MergeSortSequentially</td><td>5000000</td><td>1,411.8 ms</td><td>21.91 ms</td><td>20.49 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
-</tr><tr><td>MergeSortParallelNaive</td><td>5000000</td><td>3,080.4 ms</td><td>60.79 ms</td><td>98.17 ms</td><td>1224000.0000</td><td>9000.0000</td><td>3000.0000</td><td>5178.75 MB</td>
-</tr><tr><td>MergeSortParallelThreshold</td><td>5000000</td><td>1,386.1 ms</td><td>14.50 ms</td><td>12.85 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</thead><tbody><tr><td>QuickSortSequentially</td><td>1000</td><td>776.9 ms</td><td>3.78 ms</td><td>3.35 ms</td><td>775.9 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>QuickSortParallelNaive</td><td>1000</td><td>1,608.1 ms</td><td>232.71 ms</td><td>682.50 ms</td><td>1,590.0 ms</td><td>647000.0000</td><td>-</td><td>-</td><td>2607.03 MB</td>
+</tr><tr><td>QuickSortParallelThreshold</td><td>1000</td><td>136.0 ms</td><td>7.36 ms</td><td>21.72 ms</td><td>136.6 ms</td><td>1250.0000</td><td>500.0000</td><td>250.0000</td><td>42.38 MB</td>
+</tr><tr><td>MergeSortSequentially</td><td>1000</td><td>1,394.6 ms</td><td>21.19 ms</td><td>17.69 ms</td><td>1,386.3 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</tr><tr><td>MergeSortParallelNaive</td><td>1000</td><td>2,687.0 ms</td><td>277.04 ms</td><td>812.52 ms</td><td>2,595.5 ms</td><td>2451500.0000</td><td>4500.0000</td><td>1500.0000</td><td>10113.76 MB</td>
+</tr><tr><td>MergeSortParallelThreshold</td><td>1000</td><td>329.9 ms</td><td>26.13 ms</td><td>77.04 ms</td><td>345.9 ms</td><td>371666.6667</td><td>11333.3333</td><td>2000.0000</td><td>1863.39 MB</td>
+</tr><tr><td>QuickSortSequentially</td><td>10000</td><td>766.9 ms</td><td>2.65 ms</td><td>2.22 ms</td><td>766.5 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>QuickSortParallelNaive</td><td>10000</td><td>1,518.8 ms</td><td>176.82 ms</td><td>518.59 ms</td><td>1,535.2 ms</td><td>1049500.0000</td><td>-</td><td>-</td><td>4205.25 MB</td>
+</tr><tr><td>QuickSortParallelThreshold</td><td>10000</td><td>118.3 ms</td><td>6.83 ms</td><td>20.15 ms</td><td>117.2 ms</td><td>-</td><td>-</td><td>-</td><td>38.98 MB</td>
+</tr><tr><td>MergeSortSequentially</td><td>10000</td><td>1,364.6 ms</td><td>5.46 ms</td><td>4.84 ms</td><td>1,364.5 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</tr><tr><td>MergeSortParallelNaive</td><td>10000</td><td>2,408.9 ms</td><td>181.76 ms</td><td>533.07 ms</td><td>2,400.7 ms</td><td>1433500.0000</td><td>500.0000</td><td>-</td><td>5931 MB</td>
+</tr><tr><td>MergeSortParallelThreshold</td><td>10000</td><td>348.8 ms</td><td>28.63 ms</td><td>84.43 ms</td><td>362.2 ms</td><td>317000.0000</td><td>6000.0000</td><td>666.6667</td><td>1607.22 MB</td>
+</tr><tr><td>QuickSortSequentially</td><td>100000</td><td>780.3 ms</td><td>2.49 ms</td><td>2.33 ms</td><td>779.9 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>QuickSortParallelNaive</td><td>100000</td><td>1,589.8 ms</td><td>109.23 ms</td><td>322.06 ms</td><td>1,626.1 ms</td><td>618000.0000</td><td>333.3333</td><td>-</td><td>2493.29 MB</td>
+</tr><tr><td>QuickSortParallelThreshold</td><td>100000</td><td>127.5 ms</td><td>5.44 ms</td><td>16.03 ms</td><td>128.9 ms</td><td>250.0000</td><td>250.0000</td><td>250.0000</td><td>38.2 MB</td>
+</tr><tr><td>MergeSortSequentially</td><td>100000</td><td>1,390.1 ms</td><td>8.44 ms</td><td>7.05 ms</td><td>1,388.6 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</tr><tr><td>MergeSortParallelNaive</td><td>100000</td><td>2,482.6 ms</td><td>185.74 ms</td><td>547.67 ms</td><td>2,467.2 ms</td><td>1602500.0000</td><td>500.0000</td><td>-</td><td>6650.55 MB</td>
+</tr><tr><td>MergeSortParallelThreshold</td><td>100000</td><td>354.6 ms</td><td>23.06 ms</td><td>67.99 ms</td><td>364.9 ms</td><td>244666.6667</td><td>7000.0000</td><td>666.6667</td><td>1257.43 MB</td>
+</tr><tr><td>QuickSortSequentially</td><td>1250000</td><td>771.8 ms</td><td>1.21 ms</td><td>1.01 ms</td><td>771.9 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>QuickSortParallelNaive</td><td>1250000</td><td>1,587.2 ms</td><td>160.84 ms</td><td>474.25 ms</td><td>1,579.0 ms</td><td>882000.0000</td><td>-</td><td>-</td><td>3540.29 MB</td>
+</tr><tr><td>QuickSortParallelThreshold</td><td>1250000</td><td>116.6 ms</td><td>6.12 ms</td><td>17.95 ms</td><td>111.5 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>MergeSortSequentially</td><td>1250000</td><td>1,378.2 ms</td><td>4.35 ms</td><td>3.63 ms</td><td>1,377.2 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</tr><tr><td>MergeSortParallelNaive</td><td>1250000</td><td>2,477.6 ms</td><td>207.34 ms</td><td>611.36 ms</td><td>2,456.0 ms</td><td>1844500.0000</td><td>500.0000</td><td>-</td><td>7622.15 MB</td>
+</tr><tr><td>MergeSortParallelThreshold</td><td>1250000</td><td>384.7 ms</td><td>37.12 ms</td><td>109.44 ms</td><td>374.0 ms</td><td>161000.0000</td><td>7500.0000</td><td>-</td><td>872.21 MB</td>
+</tr><tr><td>QuickSortSequentially</td><td>2500000</td><td>760.5 ms</td><td>1.79 ms</td><td>1.58 ms</td><td>760.1 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>QuickSortParallelNaive</td><td>2500000</td><td>1,545.3 ms</td><td>95.19 ms</td><td>279.18 ms</td><td>1,550.5 ms</td><td>1118666.6667</td><td>-</td><td>-</td><td>4479.61 MB</td>
+</tr><tr><td>QuickSortParallelThreshold</td><td>2500000</td><td>123.7 ms</td><td>2.47 ms</td><td>6.77 ms</td><td>122.6 ms</td><td>-</td><td>-</td><td>-</td><td>38.15 MB</td>
+</tr><tr><td>MergeSortSequentially</td><td>2500000</td><td>1,362.5 ms</td><td>13.73 ms</td><td>11.46 ms</td><td>1,358.3 ms</td><td>278000.0000</td><td>4000.0000</td><td>4000.0000</td><td>1440.34 MB</td>
+</tr><tr><td>MergeSortParallelNaive</td><td>2500000</td><td>2,419.5 ms</td><td>222.15 ms</td><td>655.01 ms</td><td>2,426.6 ms</td><td>1757000.0000</td><td>-</td><td>-</td><td>7267.95 MB</td>
+</tr><tr><td>MergeSortParallelThreshold</td><td>2500000</td><td>785.4 ms</td><td>12.50 ms</td><td>11.69 ms</td><td>783.0 ms</td><td>283000.0000</td><td>9000.0000</td><td>3000.0000</td><td>1440.34 MB</td>
 </tr></tbody></table>
 </body>
 </html>
